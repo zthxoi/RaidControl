@@ -10,53 +10,73 @@
     <!-- Заголовки экранов -->
     <string name="title_raids">Контрольные закупки</string>
     <string name="title_add_raid">Новый рейд</string>
-    <string name="title_checklists">Чек-листы и справочник</string>
+    <string name="title_edit_raid">Редактирование рейда</string>
+    <string name="title_checklists">Чек-листы</string>
     <string name="title_map">Карта точек</string>
     <string name="title_settings">Настройки</string>
 
-    <!-- Действия -->
+    <!-- Общие действия -->
     <string name="action_add_raid">Добавить рейд</string>
+    <string name="action_add_checklist">Добавить чек-лист</string>
+    <string name="action_add_product">Добавить товар</string>
+    <string name="action_from_checklist">Из чек-листа</string>
     <string name="action_back">Назад</string>
     <string name="action_save">Сохранить</string>
+    <string name="action_delete">Удалить</string>
+    <string name="action_cancel">Отмена</string>
 
-    <!-- Статусы -->
+    <!-- Статусы рейда и товара -->
     <string name="status_success">Успешно</string>
     <string name="status_failed">Провал</string>
     <string name="status_planned">Запланирован</string>
+    <string name="product_status_match">Соответствует</string>
+    <string name="product_status_mismatch">Не соответствует</string>
 
     <!-- Экран списка рейдов -->
-    <string name="raids_placeholder_subtitle">Макет списка. Подключение локальной БД Room будет реализовано в ЛР №2.</string>
-    <string name="demo_raid_1_shop">Продукты у дома №14</string>
-    <string name="demo_raid_1_address">ул. Ленина, д. 12</string>
-    <string name="demo_raid_1_date">25.11.2026 • Тайный покупатель</string>
-    <string name="demo_raid_2_shop">Супермаркет Маяк</string>
-    <string name="demo_raid_2_address">Московское шоссе, д. 45</string>
-    <string name="demo_raid_2_date">24.11.2026 • Тайный покупатель</string>
+    <string name="raids_empty">Рейдов пока нет. Нажмите «+», чтобы добавить первую контрольную закупку.</string>
+    <string name="raid_meta_format">%1$s • %2$s</string>
+    <string name="dialog_delete_raid_title">Удалить рейд?</string>
+    <string name="dialog_delete_raid_message">Рейд и все привязанные к нему проверки товаров будут удалены безвозвратно.</string>
 
-    <!-- Экран добавления рейда -->
-    <string name="add_raid_shop_label">Название магазина</string>
+    <!-- Экран добавления/редактирования рейда -->
+    <string name="add_raid_shop_label">Название магазина *</string>
     <string name="add_raid_address_label">Адрес торговой точки</string>
     <string name="add_raid_inspector_label">Имя проверяющего</string>
     <string name="add_raid_date_label">Дата проведения</string>
+    <string name="add_raid_result_label">Результат рейда</string>
     <string name="add_raid_notes_label">Заметки по рейду</string>
-    <string name="add_raid_products_section">Привязанные товары</string>
-    <string name="add_raid_products_placeholder">Здесь будет добавление позиций для сверки цен, фото чека и анимация результата проверки.</string>
-    <string name="add_raid_stub_notice">Режим макета: сохранение записи в базу данных будет добавлено в ЛР №2.</string>
+    <string name="add_raid_products_section">Проверка товаров</string>
+    <string name="add_raid_products_empty">Товары не добавлены. Добавьте вручную или загрузите из чек-листа.</string>
+    <string name="error_shop_name_required">Укажите название магазина</string>
+
+    <!-- Диалог товара (ProductCheck) -->
+    <string name="dialog_add_product_title">Добавить товар</string>
+    <string name="dialog_edit_product_title">Редактировать товар</string>
+    <string name="product_name_label">Название товара *</string>
+    <string name="product_actual_price_label">Фактическая цена (₽)</string>
+    <string name="product_expected_price_label">Ожидаемая цена (₽)</string>
+    <string name="product_match_checkbox">Цена и товар соответствуют</string>
+    <string name="product_price_format">Факт: %1$.2f ₽ • Ожидание: %2$.2f ₽</string>
+    <string name="dialog_pick_checklist_title">Выберите чек-лист</string>
+    <string name="dialog_pick_checklist_empty">Сначала создайте хотя бы один чек-лист во вкладке «Чек-листы».</string>
 
     <!-- Экран чек-листов -->
-    <string name="checklists_section_title">Шаблоны проверок</string>
-    <string name="checklists_placeholder_desc">Здесь будут храниться чек-листы и загружаться сетевой справочник товаров.</string>
-    <string name="demo_checklist_1">Базовая продуктовая корзина (8 товаров)</string>
-    <string name="demo_checklist_2">Проверка ценников и акций (5 товаров)</string>
+    <string name="checklists_empty">Чек-листов пока нет. Нажмите «+», чтобы создать шаблон проверки.</string>
+    <string name="checklist_items_count">Позиций: %1$d</string>
+    <string name="dialog_add_checklist_title">Новый чек-лист</string>
+    <string name="dialog_edit_checklist_title">Редактировать чек-лист</string>
+    <string name="checklist_name_label">Название чек-листа *</string>
+    <string name="checklist_items_label">Список товаров (каждый с новой строки)</string>
 
     <!-- Экран карты -->
     <string name="map_placeholder_title">Интерактивная карта магазинов</string>
     <string name="map_placeholder_desc">На этом экране будут отображаться маркеры торговых точек и результаты проверок (OpenStreetMap).</string>
 
     <!-- Экран настроек -->
-    <string name="settings_profile_title">Профиль проверяющего</string>
-    <string name="settings_default_inspector">Имя по умолчанию: не задано</string>
+    <string name="settings_profile_title">Параметры по умолчанию</string>
+    <string name="settings_inspector_label">Имя проверяющего по умолчанию</string>
+    <string name="settings_city_label">Город по умолчанию</string>
     <string name="settings_notifications_title">Уведомления о рейдах</string>
     <string name="settings_notifications_desc">Напоминания о запланированных контрольных закупках.</string>
-    <string name="settings_placeholder_note">Сохранение параметров через SharedPreferences будет подключено в ЛР №2.</string>
+    <string name="settings_saved_message">Настройки сохранены</string>
 </resources>

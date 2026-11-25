@@ -18,7 +18,12 @@ sealed class Screen(
     data object Checklists : Screen("checklists", R.string.nav_checklists, Icons.Default.Checklist)
     data object Map : Screen("map", R.string.nav_map, Icons.Default.Map)
     data object Settings : Screen("settings", R.string.nav_settings, Icons.Default.Settings)
-    data object AddRaid : Screen("add_raid", R.string.title_add_raid)
+
+    data object AddRaid : Screen("add_raid", R.string.title_add_raid) {
+        const val ARG_RAID_ID = "raidId"
+        const val routeWithArg = "add_raid?$ARG_RAID_ID={$ARG_RAID_ID}"
+        fun createRoute(raidId: Long = -1L): String = "add_raid?$ARG_RAID_ID=$raidId"
+    }
 
     companion object {
         val bottomNavItems = listOf(Raids, Checklists, Map, Settings)

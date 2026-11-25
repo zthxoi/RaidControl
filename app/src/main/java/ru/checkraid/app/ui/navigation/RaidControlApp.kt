@@ -17,21 +17,27 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavDestination.Companion.hierarchy
 import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
+import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import androidx.navigation.navArgument
 import ru.checkraid.app.ui.screens.AddRaidScreen
 import ru.checkraid.app.ui.screens.ChecklistsScreen
 import ru.checkraid.app.ui.screens.MapScreen
 import ru.checkraid.app.ui.screens.RaidsScreen
 import ru.checkraid.app.ui.screens.SettingsScreen
+import ru.checkraid.app.ui.viewmodel.RaidViewModel
 
 @Composable
-fun RaidControlApp() {
+fun RaidControlApp(
+    raidViewModel: RaidViewModel = viewModel()
+) {
     val navController = rememberNavController()
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentDestination = navBackStackEntry?.destination
@@ -63,7 +69,7 @@ fun RaidControlApp() {
                     }
                 }
                 Box(modifier = Modifier.weight(1f)) {
-                    RaidNavHost(navController = navController)
+                    RaidNavHost(navController = navController, viewModel = raidViewModel)
                 }
             }
         } else {
@@ -96,7 +102,7 @@ fun RaidControlApp() {
                         .fillMaxSize()
                         .padding(bottom = innerPadding.calculateBottomPadding())
                 ) {
-                    RaidNavHost(navController = navController)
+                    RaidNavHost(navController = navController, viewModel = raidViewModel)
                 }
             }
         }
@@ -114,29 +120,45 @@ private fun navigateToTopLevel(navController: NavHostController, route: String) 
 }
 
 @Composable
-private fun RaidNavHost(navController: NavHostController) {
+private fun RaidNavHost(
+    navController: NavHostController,
+    viewModel: RaidViewModel
+) {
     NavHost(
         navController = navController,
         startDestination = Screen.Raids.route
     ) {
         composable(Screen.Raids.route) {
             RaidsScreen(
-                onAddRaidClick = { navController.navigate(Screen.AddRaid.route) }
+                viewModel = viewModel,
+                onAddRaidClick = { navController.navigate(Screen.AddRaid.createRoute()) },
+                onRaidClick = { raidId -> navController.navigate(Screen.AddRaid.createRoute(raidId)) }
             )
         }
-        composable(Screen.AddRaid.route) {
+        composable(
+            route = Screen.AddRaid.routeWithArg,
+            arguments = listOf(
+                navArgument(Screen.AddRaid.ARG_RAID_ID) {
+                    type = NavType.LongType
+                    defaultValue = -1L
+                }
+            )
+        ) { backStackEntry ->
+            val raidId = backStackEntry.arguments?.getLong(Screen.AddRaid.ARG_RAID_ID) ?: -1L
             AddRaidScreen(
+                raidId = raidId,
+                viewModel = viewModel,
                 onBackClick = { navController.popBackStack() }
             )
         }
         composable(Screen.Checklists.route) {
-            ChecklistsScreen()
+            ChecklistsScreen(viewModel = viewModel)
         }
         composable(Screen.Map.route) {
             MapScreen()
         }
         composable(Screen.Settings.route) {
-            SettingsScreen()
+            SettingsScreen(viewModel = viewModel)
         }
     }
 }

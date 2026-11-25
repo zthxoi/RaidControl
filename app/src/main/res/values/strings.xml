@@ -1,3 +1,62 @@
 <resources>
     <string name="app_name">RaidControl</string>
+
+    <!-- Навигация -->
+    <string name="nav_raids">Рейды</string>
+    <string name="nav_checklists">Чек-листы</string>
+    <string name="nav_map">Карта</string>
+    <string name="nav_settings">Настройки</string>
+
+    <!-- Заголовки экранов -->
+    <string name="title_raids">Контрольные закупки</string>
+    <string name="title_add_raid">Новый рейд</string>
+    <string name="title_checklists">Чек-листы и справочник</string>
+    <string name="title_map">Карта точек</string>
+    <string name="title_settings">Настройки</string>
+
+    <!-- Действия -->
+    <string name="action_add_raid">Добавить рейд</string>
+    <string name="action_back">Назад</string>
+    <string name="action_save">Сохранить</string>
+
+    <!-- Статусы -->
+    <string name="status_success">Успешно</string>
+    <string name="status_failed">Провал</string>
+    <string name="status_planned">Запланирован</string>
+
+    <!-- Экран списка рейдов -->
+    <string name="raids_placeholder_subtitle">Макет списка. Подключение локальной БД Room будет реализовано в ЛР №2.</string>
+    <string name="demo_raid_1_shop">Продукты у дома №14</string>
+    <string name="demo_raid_1_address">ул. Ленина, д. 12</string>
+    <string name="demo_raid_1_date">25.11.2026 • Тайный покупатель</string>
+    <string name="demo_raid_2_shop">Супермаркет Маяк</string>
+    <string name="demo_raid_2_address">Московское шоссе, д. 45</string>
+    <string name="demo_raid_2_date">24.11.2026 • Тайный покупатель</string>
+
+    <!-- Экран добавления рейда -->
+    <string name="add_raid_shop_label">Название магазина</string>
+    <string name="add_raid_address_label">Адрес торговой точки</string>
+    <string name="add_raid_inspector_label">Имя проверяющего</string>
+    <string name="add_raid_date_label">Дата проведения</string>
+    <string name="add_raid_notes_label">Заметки по рейду</string>
+    <string name="add_raid_products_section">Привязанные товары</string>
+    <string name="add_raid_products_placeholder">Здесь будет добавление позиций для сверки цен, фото чека и анимация результата проверки.</string>
+    <string name="add_raid_stub_notice">Режим макета: сохранение записи в базу данных будет добавлено в ЛР №2.</string>
+
+    <!-- Экран чек-листов -->
+    <string name="checklists_section_title">Шаблоны проверок</string>
+    <string name="checklists_placeholder_desc">Здесь будут храниться чек-листы и загружаться сетевой справочник товаров.</string>
+    <string name="demo_checklist_1">Базовая продуктовая корзина (8 товаров)</string>
+    <string name="demo_checklist_2">Проверка ценников и акций (5 товаров)</string>
+
+    <!-- Экран карты -->
+    <string name="map_placeholder_title">Интерактивная карта магазинов</string>
+    <string name="map_placeholder_desc">На этом экране будут отображаться маркеры торговых точек и результаты проверок (OpenStreetMap).</string>
+
+    <!-- Экран настроек -->
+    <string name="settings_profile_title">Профиль проверяющего</string>
+    <string name="settings_default_inspector">Имя по умолчанию: не задано</string>
+    <string name="settings_notifications_title">Уведомления о рейдах</string>
+    <string name="settings_notifications_desc">Напоминания о запланированных контрольных закупках.</string>
+    <string name="settings_placeholder_note">Сохранение параметров через SharedPreferences будет подключено в ЛР №2.</string>
 </resources>
